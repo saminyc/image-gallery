@@ -25,10 +25,10 @@ const ImageCard = ({ image }) => {
         </ul>
       </div>
       <div className="px-6 py-4">
-      {tag_list.map((tag) => {
+      {tag_list.map((tag,index) => {
   return (
     <span
-      key={image.id}
+      key={index}
       className="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-400 mr-2"
     >
       #{tag}
