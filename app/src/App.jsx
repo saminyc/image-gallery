@@ -14,21 +14,21 @@ function App() {
     )
       .then((res) => res.json())
       .then((data) => {
-      setImages(data.hits)
-      setIsLoading(false)
-    })
-      .catch((err) => console.log(err))
-  }, []);
+        setImages(data.hits);
+        setIsLoading(false);
+      })
+      .catch((err) => console.log(err));
+  }, [term]); // Add term to the dependency array
 
   return (
     <div className="container mx-auto">
       <div className="grid grid-cols-3 gap-4">
-        {
-          images.map(image=>(<ImageCard key={image.id} image={image}/>))
-        }
+        {images.map((image) => (
+          <ImageCard key={image.id} image={image} />
+        ))}
       </div>
     </div>
-      );
+  );
 }
 
 export default App;
