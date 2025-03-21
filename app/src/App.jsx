@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { API_KEY } from "../config";
 import ImageCard from "./components/ImageCard";
+import ImageSearch from "./components/ImageSearch";
 import "./index.css";
 
 function App() {
@@ -22,6 +23,10 @@ function App() {
 
   return (
     <div className="container mx-auto">
+      <ImageSearch searchText={(text) => setTerm(text)} />
+      {!isLoading && images.length === 0 && (
+        <h1 className="text-6xl text-center mx-auto mt-32">No Images Found</h1>
+      )}
       {isLoading ? (
         <h1 className="text-6xl text-center mx-auto mt-32">Loading...</h1>
       ) : (
